@@ -46,7 +46,7 @@ async def setPassword(bot: HoshinoBot, ev: CQEvent):
 def sendg():
     return '''
     <form action="XMLSender" method="post"><br />
-        密码：<input type="text" name="psw"><br />
+        密码：<input type="password" name="psw"><br />
         群号：<input type="text" name="group"><br />
         XML：<br />
         <textarea rows="10" cols="30" name="XML"></textarea><br />
@@ -65,7 +65,7 @@ async def sendp():
         await curr_bot.send_group_msg(group_id=group_id, message=f'[CQ:xml,data={xml}]')
         return '''
             <form action="XMLSender" method="post"><br />
-                密码：<input type="text" name="psw"><br />
+                密码：<input type="password" name="psw"><br />
                 群号：<input type="text" name="group"><br />
                 XML：<br />
                 <textarea rows="10" cols="30" name="XML"></textarea><br />
@@ -76,7 +76,7 @@ async def sendp():
     else:
         return '''
             <form action="XMLSender" method="post"><br />
-                密码：<input type="text" name="psw"><br />
+                密码：<input type="password" name="psw"><br />
                 群号：<input type="text" name="group"><br />
                 XML：<br />
                 <textarea rows="10" cols="30" name="XML"></textarea><br />
