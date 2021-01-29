@@ -39,6 +39,8 @@ async def setPassword(bot: HoshinoBot, ev: CQEvent):
     global password
     password = ev.message.extract_plain_text()
     json.dump({'password': password}, open(os.path.dirname(__file__) + '/config.json', 'w'))
+    await bot.send(ev, f'已将密码设置为{password}')
+
 
 @app.route('/XMLSender', methods=['GET'])
 def sendg():
