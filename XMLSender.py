@@ -46,10 +46,8 @@ async def sendp():
     group_id = int(XML_data.get('group'))
     xml = XML_data.get('XML')
     psw = XML_data.get('psw')
-    ev = CQEvent()
-    ev.group_id = group_id
     if psw == password:
-        await curr_bot.send_group_msg(group=group_id, message=f'[CQ:xml,data={xml}]')
+        await curr_bot.send_group_msg(group_id=group_id, message=f'[CQ:xml,data={xml}]')
         return '''
             <form action="XMLSender" method="post">
                 <input type="text" name="psw">\n
