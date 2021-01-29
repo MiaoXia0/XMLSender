@@ -17,7 +17,7 @@ host = json.load(urlopen('http://jsonip.com'))['ip']
 port = get_bot().config.PORT
 curr_bot = get_bot()
 try:
-    password = json.load(open(os.path.dirname(__file__) + '/config.json'), 'r')['password']
+    password = json.load(open(os.path.dirname(__file__) + '/config.json', 'r'))['password']
 except IOError:
     password = '123456'
     json.dump({'password': password}, open(os.path.dirname(__file__) + '/config.json', 'w'))
