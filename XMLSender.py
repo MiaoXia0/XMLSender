@@ -14,7 +14,7 @@ app = get_bot().server_app
 host = json.load(urlopen('http://jsonip.com'))['ip']
 port = get_bot().config.PORT
 curr_bot = get_bot()
-password = ''
+password = '123456'  # 请修改使用密码
 
 
 @sv.on_prefix('发送XML')
@@ -32,10 +32,10 @@ async def sendXMLWeb(bot: HoshinoBot, ev: CQEvent):
 def sendg():
     return '''
     <form action="XMLSender" method="post">
-        密码<input type="text" name="psw">\n
-        群号<input type="text" name="group">\n
-        XML<textarea rows="10" cols="30" name="XML"></textarea>\n
-        <button type="submit">发送</button>\n
+        密码<input type="text" name="psw">
+        群号<input type="text" name="group">
+        XML<textarea rows="10" cols="30" name="XML"></textarea>
+        <button type="submit">发送</button>
     </form>
     '''
 
@@ -50,18 +50,18 @@ async def sendp():
         await curr_bot.send_group_msg(group_id=group_id, message=f'[CQ:xml,data={xml}]')
         return '''
             <form action="XMLSender" method="post">
-                <input type="text" name="psw">\n
-                <input type="text" name="group">\n
-                <textarea rows="10" cols="30" name="XML"></textarea>\n
-                <button type="submit">发送</button>\n
+                <input type="text" name="psw">
+                <input type="text" name="group">
+                <textarea rows="10" cols="30" name="XML"></textarea>
+                <button type="submit">发送</button>
             </form>发送成功!
             '''
     else:
         return '''
             <form action="XMLSender" method="post">
-                <input type="text" name="psw">\n
-                <input type="text" name="group">\n
-                <textarea rows="10" cols="30" name="XML"></textarea>\n
-                <button type="submit">发送</button>\n
+                <input type="text" name="psw">
+                <input type="text" name="group">
+                <textarea rows="10" cols="30" name="XML"></textarea>
+                <button type="submit">发送</button>
             </form>密码错误!
             '''
