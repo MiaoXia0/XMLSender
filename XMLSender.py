@@ -3,6 +3,8 @@ from nonebot import get_bot
 from hoshino import Service
 from hoshino.typing import HoshinoBot, CQEvent
 from quart import request
+import os
+
 try:
     import ujson as json
 except ImportError:
@@ -14,7 +16,11 @@ app = get_bot().server_app
 host = json.load(urlopen('http://jsonip.com'))['ip']
 port = get_bot().config.PORT
 curr_bot = get_bot()
-password = '123456'  # 请修改使用密码
+try:
+    password = json.load(open(os.path.dirname(__file__) + '/config.json'), 'r')['password']
+except IOError:
+    password = '123456'
+    json.dump({'password': password}, open(os.path.dirname(__file__) + '/config.json', 'w'))
 
 
 @sv.on_prefix('发送XML')
@@ -27,6 +33,9 @@ async def sendXML(bot: HoshinoBot, ev: CQEvent):
 async def sendXMLWeb(bot: HoshinoBot, ev: CQEvent):
     await bot.send(ev, f'http://{host}:{port}/XMLSender')
 
+
+@sv.on_prefix('设置密码')
+async def setPassword
 
 @app.route('/XMLSender', methods=['GET'])
 def sendg():
