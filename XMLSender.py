@@ -31,10 +31,11 @@ async def sendXMLWeb(bot: HoshinoBot, ev: CQEvent):
 @app.route('/XMLSender', methods=['GET'])
 def sendg():
     return '''
-    <form action="XMLSender" method="post">
-        密码<input type="text" name="psw">
-        群号<input type="text" name="group">
-        XML<textarea rows="10" cols="30" name="XML"></textarea>
+    <form action="XMLSender" method="post"><br />
+        密码：<input type="text" name="psw"><br />
+        群号：<input type="text" name="group"><br />
+        XML：<br />
+        <textarea rows="10" cols="30" name="XML"></textarea><br />
         <button type="submit">发送</button>
     </form>
     '''
@@ -49,19 +50,23 @@ async def sendp():
     if psw == password:
         await curr_bot.send_group_msg(group_id=group_id, message=f'[CQ:xml,data={xml}]')
         return '''
-            <form action="XMLSender" method="post">
-                <input type="text" name="psw">
-                <input type="text" name="group">
-                <textarea rows="10" cols="30" name="XML"></textarea>
+            <form action="XMLSender" method="post"><br />
+                密码：<input type="text" name="psw"><br />
+                群号：<input type="text" name="group"><br />
+                XML：<br />
+                <textarea rows="10" cols="30" name="XML"></textarea><br />
                 <button type="submit">发送</button>
-            </form>发送成功!
+            </form>
+            发送成功!
             '''
     else:
         return '''
-            <form action="XMLSender" method="post">
-                <input type="text" name="psw">
-                <input type="text" name="group">
-                <textarea rows="10" cols="30" name="XML"></textarea>
+            <form action="XMLSender" method="post"><br />
+                密码：<input type="text" name="psw"><br />
+                群号：<input type="text" name="group"><br />
+                XML：<br />
+                <textarea rows="10" cols="30" name="XML"></textarea><br />
                 <button type="submit">发送</button>
-            </form>密码错误!
+            </form>
+            密码错误!
             '''
