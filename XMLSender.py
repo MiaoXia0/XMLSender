@@ -34,7 +34,7 @@ async def sendXMLWeb(bot: HoshinoBot, ev: CQEvent):
     await bot.send(ev, f'http://{host}:{port}/XMLSender')
 
 
-@sv.on_prefix('设置密码')
+@sv.on_prefix('设置XML密码')
 async def setPassword(bot: HoshinoBot, ev: CQEvent):
     global password
     password = ev.message.extract_plain_text()
